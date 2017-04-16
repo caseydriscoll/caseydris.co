@@ -3,6 +3,7 @@ stage:
     - composer install
     - cd web/app/themes/casey
     - composer install
+    - npm install
     - yarn run build:production
   only:
     - stage
