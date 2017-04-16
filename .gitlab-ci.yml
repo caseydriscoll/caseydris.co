@@ -1,3 +1,7 @@
+cache:
+  paths:
+  - web/app/themes/casey/node_modules/
+
 stage:
   script:
     - composer install
