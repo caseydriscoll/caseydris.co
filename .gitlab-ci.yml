@@ -5,4 +5,4 @@ stage:
     - composer install
     - yarn run build:production
   only:
-    stage
+    - stage
