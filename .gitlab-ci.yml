@@ -1,0 +1,8 @@
+stage:
+  script:
+    - composer install
+    - cd web/app/themes/casey
+    - composer install
+    - yarn run build:production
+  only:
+    stage
