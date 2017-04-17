@@ -10,7 +10,6 @@ build_stage:
     - npm install
     - yarn run build:production
     - cd ../../../../
-    - whoami
     - cp composer.json /srv/www/caseydris.co/stage_html/composer.json
   stage: build
   only:
