@@ -1,13 +1,17 @@
 cache:
   paths:
-  - web/app/themes/casey/node_modules/
+    - web/app/themes/casey/node_modules/
 
-stage:
+build_stage:
   script:
     - composer install
     - cd web/app/themes/casey
     - composer install
     - npm install
     - yarn run build:production
+    - cd ../../../../
+    - whoami
+    - cp composer.json /srv/www/caseydris.co/stage_html/composer.json
+  stage: build
   only:
     - stage
