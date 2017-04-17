@@ -10,7 +10,7 @@ build_stage:
     - npm install
     - yarn run build:production
     - cd ../../../../
-    - cp composer.json /srv/www/caseydris.co/stage_html/composer.json
+    - rsync -t * /srv/www/caseydris.co/stage_html/
   stage: build
   only:
     - stage
