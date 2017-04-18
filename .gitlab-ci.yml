@@ -21,10 +21,7 @@ build_stage:
     - rm -rf "${STAGE_PATH}releases/${STAGE_RELEASE}/web/app/uploads"
     - ln -s "${STAGE_PATH}shared/web/app/uploads" "${STAGE_PATH}releases/${STAGE_RELEASE}/web/app/uploads"
     - ln -s "${STAGE_PATH}shared/.env" "${STAGE_PATH}releases/${STAGE_RELEASE}/.env"
-    - chown -R :www-data "${STAGE_PATH}current"
-    - chown -R :www-data "${STAGE_PATH}releases/${STAGE_RELEASE}"
-    - find "${STAGE_PATH}releases/${STAGE_RELEASE}" -type d -exec chmod 755 {} \;
-    - find "${STAGE_PATH}releases/${STAGE_RELEASE}" -type f -exec chmod 644 {} \;
+    - steps/harden $STAGE_PATH $STAGE_RELEASE
   only:
     - stage
 
