@@ -12,15 +12,7 @@ build_stage:
     - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
     - echo "Building Stage Release $STAGE_RELEASE"
     - steps/build casey
-    - mkdir "${STAGE_PATH}releases/${STAGE_RELEASE}"
-    - rm -f "${STAGE_PATH}current"
-    - ln -s "${STAGE_PATH}releases/${STAGE_RELEASE}" "${STAGE_PATH}current"
-    - rsync -r ./config "${STAGE_PATH}current"
-    - rsync -r ./vendor "${STAGE_PATH}current"
-    - rsync -r --exclude-from=".rsync" ./web "${STAGE_PATH}current"
-    - rm -rf "${STAGE_PATH}releases/${STAGE_RELEASE}/web/app/uploads"
-    - ln -s "${STAGE_PATH}shared/web/app/uploads" "${STAGE_PATH}releases/${STAGE_RELEASE}/web/app/uploads"
-    - ln -s "${STAGE_PATH}shared/.env" "${STAGE_PATH}releases/${STAGE_RELEASE}/.env"
+    - steps/deploy $STAGE_PATH $STAGE_RELEASE
     - steps/harden $STAGE_PATH $STAGE_RELEASE
   only:
     - stage
