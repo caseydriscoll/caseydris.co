@@ -11,7 +11,8 @@
   "publicPath": "/app/themes/casey",
   "devUrl": "http://caseydris.dev",
   "proxyUrl": "http://localhost:3000",
-  "cacheBusting": "[name]_[hash:8]",
+  "cacheBusting_old": "[name]_[hash:8]",
+  "cacheBusting": "[name]",
   "watch": [
     "{app,resources/views}/**/*.php"
   ],
