@@ -22,7 +22,7 @@ deploy_stage:
     - export STAGE_RELEASE=$(cat /tmp/STAGE_RELEASE)
     - echo "Deploying Stage Release $STAGE_RELEASE"
     - mkdir "${STAGE_PATH}releases/${STAGE_RELEASE}"
-    - ln -sf "${STAGE_PATH}releases/${STAGE_RELEASE}" "${STAGE_PATH}current"
+    - ln -s --force "${STAGE_PATH}releases/${STAGE_RELEASE}" "${STAGE_PATH}current"
     - ls -al
   environment:
     name: Staging
