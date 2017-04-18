@@ -5,33 +5,20 @@ cache:
 build_stage:
   stage: build
   script:
-    - date +%Y%m%d%H%M%S > /tmp/STAGE_RELEASE
-    - export STAGE_RELEASE=$(cat /tmp/STAGE_RELEASE)
+    - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
     - echo "Building Stage Release $STAGE_RELEASE"
     - composer install
     - cd web/app/themes/casey
     - composer install
     - npm install
     - yarn run build:production
-  only:
-    - stage
-
-deploy_stage:
-  stage: deploy
-  script:
-    - export STAGE_RELEASE=$(cat /tmp/STAGE_RELEASE)
-    - echo "Deploying Stage Release $STAGE_RELEASE"
     - mkdir "${STAGE_PATH}releases/${STAGE_RELEASE}"
     - rm -f "${STAGE_PATH}current"
     - ln -s "${STAGE_PATH}releases/${STAGE_RELEASE}" "${STAGE_PATH}current"
-    - pwd
-    - ls -al
+    - cd ../../../..
     - rsync -r ./config "${STAGE_PATH}current"
     - rsync -r ./vendor "${STAGE_PATH}current"
     - rsync -r --exclude-from=".rsync" ./web "${STAGE_PATH}current"
-    - ln -s "${STAGE_PATH}shared/web/app/uploads" "${STAGE_PATH}releases/${STAGE_RELEASE}web/app/uploads"
-  environment:
-    name: Staging
-    url: https://stage.caseydris.co
+    - ln -s "${STAGE_PATH}shared/web/app/uploads" "${STAGE_PATH}releases/${STAGE_RELEASE}/web/app/uploads"
   only:
     - stage
