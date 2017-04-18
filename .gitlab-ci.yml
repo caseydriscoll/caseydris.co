@@ -4,14 +4,25 @@ cache:
 
 build_stage:
   script:
-    - bundle install
+    - echo "Building Staging"
     - composer install
     - cd web/app/themes/casey
     - composer install
     - npm install
     - yarn run build:production
     - cd ../../../../
-    - cap staging deploy --trace
+    - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
+    - echo $STAGE_RELEASE
+    - mkdir /srv/www/caseydris.co/stage_html/releases/$STAGE_RELEASE
   stage: build
+  only:
+    - stage
+
+deploy_stage:
+  script:
+    - echo "Deploying Staging"
+  environment:
+    name: Staging
+    url: https://stage.caseydris.co
   only:
     - stage
