@@ -3,12 +3,12 @@ cache:
     - web/app/themes/casey/node_modules/
 
 before_script:
-  - date +%Y%m%d%H%M%S > STAGE_RELEASE
+  - date +%Y%m%d%H%M%S > /tmp/STAGE_RELEASE
 
 build_stage:
   stage: build
   script:
-    - export STAGE_RELEASE=$(cat STAGE_RELEASE)
+    - export STAGE_RELEASE=$(cat /tmp/STAGE_RELEASE)
     - echo "Building Stage Release $STAGE_RELEASE"
     - composer install
     - cd web/app/themes/casey
@@ -21,12 +21,11 @@ build_stage:
 deploy_stage:
   stage: deploy
   script:
-    - export STAGE_RELEASE=$(cat STAGE_RELEASE)
+    - export STAGE_RELEASE=$(cat /tmp/STAGE_RELEASE)
     - echo "Deploying Stage Release $STAGE_RELEASE"
     - mkdir "${STAGE_PATH}releases/${STAGE_RELEASE}"
     - ln -s "${STAGE_PATH}releases/${STAGE_RELEASE}" "${STAGE_PATH}current"
     - ls -al
-    - chown -R :www-data $STAGE_PATH
   environment:
     name: Staging
     url: https://stage.caseydris.co
