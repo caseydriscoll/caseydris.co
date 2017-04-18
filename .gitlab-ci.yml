@@ -3,24 +3,27 @@ cache:
     - web/app/themes/casey/node_modules/
 
 build_stage:
+  stage: build
   script:
-    - echo "Building Staging"
+    - pwd
+    - export STAGE_PATH=/srv/www/caseydris.co/stage_html/releases/
+    - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
+    - echo "Building Stage Release: $STAGE_RELEASE"
     - composer install
     - cd web/app/themes/casey
     - composer install
     - npm install
     - yarn run build:production
     - cd ../../../../
-    - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
-    - echo $STAGE_RELEASE
-    - mkdir /srv/www/caseydris.co/stage_html/releases/$STAGE_RELEASE
-  stage: build
+    - mkdir $STAGE_PATH$STAGE_RELEASE
   only:
     - stage
 
 deploy_stage:
+  stage: deploy
   script:
     - echo "Deploying Staging"
+    - pwd
   environment:
     name: Staging
     url: https://stage.caseydris.co
