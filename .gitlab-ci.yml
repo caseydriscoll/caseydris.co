@@ -20,17 +20,11 @@ build_prod:
   stage: build
   script:
     - export PROD_RELEASE=$(date +%Y%m%d%H%M%S)
-    - echo "Building Prod Release PROD_RELEASE"
-    - composer install
-    - cd web/app/themes/casey
-    - composer install
-    - npm install
-    - yarn run build:production
+    - steps/build  $PROD_RELEASE casey
     - mkdir -p "${PROD_PATH}releases/${PROD_RELEASE}"
     - touch "${PROD_PATH}current"
     - rm -f "${PROD_PATH}current"
     - ln -s "${PROD_PATH}releases/${PROD_RELEASE}" "${PROD_PATH}current"
-    - cd ../../../..
     - rsync -r ./config "${PROD_PATH}current"
     - rsync -r ./vendor "${PROD_PATH}current"
     - rsync -r --exclude-from=".rsync" ./web "${PROD_PATH}current"
