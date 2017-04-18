@@ -23,8 +23,8 @@ deploy_stage:
   script:
     - export STAGE_RELEASE=$(cat STAGE_RELEASE)
     - echo "Deploying Stage Release $STAGE_RELEASE"
-    - mkdir "$STAGE_PATHreleases/$STAGE_RELEASE"
-    - ln -s "$STAGE_PATHreleases/$STAGE_RELEASE" "$STAGE_PATHcurrent"
+    - mkdir "${STAGE_PATH}releases/${STAGE_RELEASE}"
+    - ln -s "${STAGE_PATH}releases/${STAGE_RELEASE}" "${STAGE_PATH}current"
     - ll -al
     - chown -R :www-data $STAGE_PATH
   environment:
