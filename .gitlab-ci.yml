@@ -1,12 +1,9 @@
-image: ruby:2.3
-
 cache:
   paths:
     - web/app/themes/casey/node_modules/
 
 build_stage:
   script:
-    - gem install bundler
     - bundle install
     - composer install
     - cd web/app/themes/casey
