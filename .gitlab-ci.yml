@@ -7,9 +7,8 @@ before_script:
 
 build_stage:
   stage: build
-  variables:
-    STAGE_RELEASE: $(cat STAGE_RELEASE)
   script:
+    - export STAGE_RELEASE=$(cat STAGE_RELEASE)
     - echo "Building Stage Release $STAGE_RELEASE"
     - composer install
     - cd web/app/themes/casey
@@ -21,12 +20,11 @@ build_stage:
 
 deploy_stage:
   stage: deploy
-  variables:
-    STAGE_RELEASE: $(cat STAGE_RELEASE)
   script:
+    - export STAGE_RELEASE=$(cat STAGE_RELEASE)
     - echo "Deploying Stage Release $STAGE_RELEASE"
-    - mkdir $STAGE_PATHreleases/$STAGE_RELEASE
-    - ln -s $STAGE_PATHreleases/$STAGE_RELEASE $STAGE_PATHcurrent
+    - mkdir "$STAGE_PATHreleases/$STAGE_RELEASE"
+    - ln -s "$STAGE_PATHreleases/$STAGE_RELEASE" "$STAGE_PATHcurrent"
     - ll -al
     - chown -R :www-data $STAGE_PATH
   environment:
