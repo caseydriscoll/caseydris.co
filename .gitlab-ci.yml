@@ -2,10 +2,14 @@ cache:
   paths:
     - web/app/themes/casey/node_modules/
 
+before_script:
+  - date +%Y%m%d%H%M%S > STAGE_RELEASE
+
 build_stage:
   stage: build
+  variables:
+    STAGE_RELEASE: $(cat STAGE_RELEASE)
   script:
-    - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
     - echo "Building Stage Release $STAGE_RELEASE"
     - composer install
     - cd web/app/themes/casey
@@ -17,6 +21,8 @@ build_stage:
 
 deploy_stage:
   stage: deploy
+  variables:
+    STAGE_RELEASE: $(cat STAGE_RELEASE)
   script:
     - echo "Deploying Stage Release $STAGE_RELEASE"
     - mkdir $STAGE_PATHreleases/$STAGE_RELEASE
