@@ -10,8 +10,7 @@ build_stage:
   stage: build
   script:
     - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
-    - echo "Building Stage Release $STAGE_RELEASE"
-    - steps/build casey
+    - steps/build  $STAGE_RELEASE casey
     - steps/deploy $STAGE_PATH $STAGE_RELEASE
     - steps/harden $STAGE_PATH $STAGE_RELEASE
   only:
