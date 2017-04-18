@@ -5,16 +5,17 @@ cache:
 build_stage:
   stage: build
   script:
-    - pwd
+    - export STAGE_BUILD=$(pwd)
     - export STAGE_PATH=/srv/www/caseydris.co/stage_html/releases/
     - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
-    - echo "Building Stage Release: $STAGE_RELEASE"
+    - echo "In $STAGE_BUILD"
+    - echo "Building Stage Release $STAGE_RELEASE"
     - composer install
     - cd web/app/themes/casey
     - composer install
     - npm install
     - yarn run build:production
-    - cd ../../../../
+    - cd $STAGE_BUILD
     - mkdir $STAGE_PATH$STAGE_RELEASE
   only:
     - stage
