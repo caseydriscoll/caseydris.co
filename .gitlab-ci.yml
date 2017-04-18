@@ -21,20 +21,7 @@ build_prod:
   script:
     - export PROD_RELEASE=$(date +%Y%m%d%H%M%S)
     - steps/build  $PROD_RELEASE casey
-    - mkdir -p "${PROD_PATH}releases/${PROD_RELEASE}"
-    - touch "${PROD_PATH}current"
-    - rm -f "${PROD_PATH}current"
-    - ln -s "${PROD_PATH}releases/${PROD_RELEASE}" "${PROD_PATH}current"
-    - rsync -r ./config "${PROD_PATH}current"
-    - rsync -r ./vendor "${PROD_PATH}current"
-    - rsync -r --exclude-from=".rsync" ./web "${PROD_PATH}current"
-    - mkdir -p "${PROD_PATH}shared/web/app"
-    - rm -rf "${PROD_PATH}releases/${PROD_RELEASE}/web/app/uploads"
-    - ln -s "${PROD_PATH}shared/web/app/uploads" "${PROD_PATH}releases/${PROD_RELEASE}/web/app/uploads"
-    - ln -s "${PROD_PATH}shared/.env" "${PROD_PATH}releases/${PROD_RELEASE}/.env"
-    - chown -R :www-data "${PROD_PATH}current"
-    - chown -R :www-data "${PROD_PATH}releases/${PROD_RELEASE}"
-    - find "${PROD_PATH}releases/${PROD_RELEASE}" -type d -exec chmod 755 {} \;
-    - find "${PROD_PATH}releases/${PROD_RELEASE}" -type f -exec chmod 644 {} \;
+    - steps/deploy $PROD_PATH $PROD_RELEASE
+    - steps/harden $PROD_PATH $PROD_RELEASE
   only:
     - prod
