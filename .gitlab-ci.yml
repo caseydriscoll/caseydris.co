@@ -24,10 +24,12 @@ deploy_stage:
     - mkdir "${STAGE_PATH}releases/${STAGE_RELEASE}"
     - rm -f "${STAGE_PATH}current"
     - ln -s "${STAGE_PATH}releases/${STAGE_RELEASE}" "${STAGE_PATH}current"
+    - pwd
     - ls -al
     - rsync -r ./config "${STAGE_PATH}current"
     - rsync -r ./vendor "${STAGE_PATH}current"
     - rsync -r --exclude-from=".rsync" ./web "${STAGE_PATH}current"
+    - ln -s "${STAGE_PATH}shared/web/app/uploads" "${STAGE_PATH}releases/${STAGE_RELEASE}web/app/uploads"
   environment:
     name: Staging
     url: https://stage.caseydris.co
