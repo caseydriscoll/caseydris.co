@@ -4,16 +4,14 @@ cache:
 
 build_stage:
   script:
+    - gem install bundler
     - composer install
     - cd web/app/themes/casey
     - composer install
     - npm install
     - yarn run build:production
     - cd ../../../../
-    - rsync -r --exclude-from '.rsync' ./ /srv/www/caseydris.co/stage_html
-    - chown -R www-data:www-data /srv/www/caseydris.co/stage_html/
-    - find /srv/www/caseydris.co/stage_html/ -type d -exec chmod 755 {} \;
-    - find /srv/www/caseydris.co/stage_html/ -type f -exec chmod 644 {} \;
+    - cap staging deploy --trace
   stage: build
   only:
     - stage
