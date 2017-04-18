@@ -25,7 +25,7 @@ deploy_stage:
     - echo "Deploying Stage Release $STAGE_RELEASE"
     - mkdir "${STAGE_PATH}releases/${STAGE_RELEASE}"
     - ln -s "${STAGE_PATH}releases/${STAGE_RELEASE}" "${STAGE_PATH}current"
-    - ll -al
+    - ls -al
     - chown -R :www-data $STAGE_PATH
   environment:
     name: Staging
