@@ -22,7 +22,8 @@ build_stage:
     - rm -rf "${STAGE_PATH}releases/${STAGE_RELEASE}/web/app/uploads"
     - ln -s "${STAGE_PATH}shared/web/app/uploads" "${STAGE_PATH}releases/${STAGE_RELEASE}/web/app/uploads"
     - ln -s "${STAGE_PATH}shared/.env" "${STAGE_PATH}releases/${STAGE_RELEASE}/.env"
-    - chown -R :www-data "${STAGE_PATH}current/*"
+    - chown :www-data "${STAGE_PATH}current"
+    - chown -R :www-data "${STAGE_PATH}releases/${STAGE_RELEASE}"
   only:
     - stage
 
