@@ -3,9 +3,8 @@ cache:
     - web/app/themes/casey/node_modules/
 
 before_script:
-  script:
-    - git clone https://git.caseydris.co/casey/runner-steps.git steps
-    - chmod -R 775 steps
+  - git clone https://git.caseydris.co/casey/runner-steps.git steps
+  - chmod -R 775 steps
 
 build_stage:
   stage: build
