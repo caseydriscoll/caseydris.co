@@ -19,7 +19,7 @@ build_stage:
     - rsync -r ./config "${STAGE_PATH}current"
     - rsync -r ./vendor "${STAGE_PATH}current"
     - rsync -r --exclude-from=".rsync" ./web "${STAGE_PATH}current"
-    - rm -f "${STAGE_PATH}releases/${STAGE_RELEASE}/web/app/uploads"
+    - rm -rf "${STAGE_PATH}releases/${STAGE_RELEASE}/web/app/uploads"
     - ln -s "${STAGE_PATH}shared/web/app/uploads" "${STAGE_PATH}releases/${STAGE_RELEASE}/web/app/uploads"
     - ln -s "${STAGE_PATH}shared/.env" "${STAGE_PATH}releases/${STAGE_RELEASE}/.env"
     - chown -R :www-data "${STAGE_PATH}current"
