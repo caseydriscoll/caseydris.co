@@ -2,20 +2,20 @@ cache:
   paths:
     - web/app/themes/casey/node_modules/
 
+before_script:
+  script:
+    - git clone https://git.caseydris.co/casey/runner-steps.git steps
+    - chmod -R 775 steps
+
 build_stage:
   stage: build
   script:
     - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
     - echo "Building Stage Release $STAGE_RELEASE"
-    - composer install
-    - cd web/app/themes/casey
-    - composer install
-    - npm install
-    - yarn run build:production
+    - steps/build casey
     - mkdir "${STAGE_PATH}releases/${STAGE_RELEASE}"
     - rm -f "${STAGE_PATH}current"
     - ln -s "${STAGE_PATH}releases/${STAGE_RELEASE}" "${STAGE_PATH}current"
-    - cd ../../../..
     - rsync -r ./config "${STAGE_PATH}current"
     - rsync -r ./vendor "${STAGE_PATH}current"
     - rsync -r --exclude-from=".rsync" ./web "${STAGE_PATH}current"
