@@ -19,9 +19,6 @@ build_stage:
 build_prod:
   stage: build
   script:
-    - composer remove johnpbloch/wordpress
-    - composer clear-cache
-    - composer require johnpbloch/wordpress:4.7.3
     - export PROD_RELEASE=$(date +%Y%m%d%H%M%S)
     - steps/build  $PROD_RELEASE casey
     - steps/deploy $PROD_PATH $PROD_RELEASE
