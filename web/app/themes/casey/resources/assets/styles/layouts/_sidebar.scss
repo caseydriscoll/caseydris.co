@@ -1,62 +1,95 @@
-.primary.sidebar {
+.sidebar {
+
   width: 100%;
   margin: 2rem auto;
   text-align: center;
 
-  @include media-breakpoint-up(lg) {
-    margin: 8rem 4rem;
-  }
+  &.primary {
 
-  #nametag {
-    border: none;
-    svg {
-      max-width: 10rem;
-      transform: rotate(-5deg);
-
-      &:hover {
-        transition: transform .2s;
-        transform: rotate(-7deg);
-      }
-    }
-  }
-
-  section {
-    padding: 1rem 0;
-
-    &:nth-of-type(2) {
-      p {
-        margin-bottom: 0;
-        line-height: 1.5;
-      }
+    @include media-breakpoint-up(md) {
+      position: fixed;
+      left: 0; top: 0;
+      width: 25%;
     }
 
-    p {
-      margin-bottom: 1rem;
-      text-align: center;
-      line-height: 1.25em;
-      font: {
-        size: 1.0rem;
-        weight: 600;
-      }
+    #nametag {
+      border: none;
 
-      em, a {
-        font-weight: 900;
-        color: $brand-primary;
-        border: none;
-      }
+      svg {
+        transform: rotate(-5deg);
 
-      img {
-        margin: 1.5rem auto;
-      }
-
-      strong {
-        font-weight: 900;
-
-        &.heart {
-          color: #e30613;
-          font-style: normal;
+        &:hover {
+          transition: transform .2s;
+          transform: rotate(-7deg);
         }
       }
+    }
+
+    section {
+      padding: 1rem 0;
+
+      @include media-breakpoint-up(md) {
+        padding: .5rem 0;
+      }
+
+      &:nth-of-type(2) {
+        p {
+          margin-bottom: 0;
+          line-height: 1.5;
+        }
+      }
+
+      p {
+        margin-bottom: 1rem;
+        text-align: center;
+        line-height: 1.25em;
+        font: {
+          size: 1.0rem;
+          weight: 600;
+        }
+
+        @include media-breakpoint-up(md) {
+          font-size: .6rem;
+          weight: 500;
+        }
+
+        em, a {
+          font-weight: 900;
+          color: $brand-primary;
+          border: none;
+        }
+
+        img {
+          margin: 1.5rem auto;
+
+          @include media-breakpoint-up(md) {
+            max-width: 8rem;
+          }
+        }
+
+        strong {
+          font-weight: 900;
+
+          &.heart {
+            color: #e30613;
+            font-style: normal;
+          }
+        }
+      }
+    }
+  }
+
+  &.secondary {
+
+    @include media-breakpoint-up(md) {
+      width: 75%;
+      margin: 0 0 0 25%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      position: fixed;
+      right: 0; top: 0;
+      width: 25%;
     }
   }
 }
