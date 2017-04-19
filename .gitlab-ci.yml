@@ -10,6 +10,9 @@ build_stage:
   stage: build
   script:
     - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
+    - composer remove johnpbloch/wordpress
+    - composer clear-cache
+    - composer require johnpbloch/wordpress:4.7.3
     - steps/build  $STAGE_RELEASE casey
     - steps/deploy $STAGE_PATH $STAGE_RELEASE
     - steps/harden $STAGE_PATH $STAGE_RELEASE
