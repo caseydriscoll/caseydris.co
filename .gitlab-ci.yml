@@ -23,5 +23,6 @@ build_prod:
     - steps/build  $CI_RELEASE casey
     - steps/deploy $PROD_PATH $CI_RELEASE
     - steps/harden $PROD_PATH $CI_RELEASE
+    - steps/backup $PROD_PATH $CI_RELEASE
   only:
     - prod
