@@ -80,9 +80,13 @@ add_action('widgets_init', function () {
         'after_title'   => '</h3>'
     ];
     register_sidebar([
-        'name'          => __('Primary', 'sage'),
-        'id'            => 'sidebar-primary'
-    ] + $config);
+            'name'          => __('Primary', 'sage'),
+            'id'            => 'sidebar-primary'
+        ] + $config);
+    register_sidebar([
+            'name'          => __('Secondary', 'sage'),
+            'id'            => 'sidebar-secondary'
+        ] + $config);
     register_sidebar([
         'name'          => __('Footer', 'sage'),
         'id'            => 'sidebar-footer'
