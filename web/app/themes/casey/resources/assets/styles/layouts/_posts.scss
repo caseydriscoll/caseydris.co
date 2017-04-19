@@ -1,3 +1,10 @@
-.page-header {
-  display: none;
+article.post {
+  padding: 2rem 0;
+  
+  h2.entry-title {
+    .category {
+      color: $black
+    }
+  }
+
 }

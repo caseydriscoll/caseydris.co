@@ -85,3 +85,16 @@ if (($sage_views = basename(__DIR__).'/resources/views') !== get_option('templat
     wp_redirect($_SERVER['REQUEST_URI']);
     exit();
 }
+
+
+function fab_the_category_link() {
+
+    $link = '';
+    $cats = get_the_category();
+
+    if ( ! empty( $cats ) ) {
+        $link  = '<a class="category" href="' . $cats[0]->slug . '">' . $cats[0]->name . '</a>:';
+    }
+
+    echo $link;
+}

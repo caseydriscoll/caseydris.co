@@ -1,17 +1,9 @@
-<svg id="nametag" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 249.4 167.2" enable-background="new 0 0 249.4 167.2" xml:space="preserve">
-    <g id="Front">
-        <defs>
-            <path id="Clip_Path" d="M-54.7,161.4h-209.2c-7.8,0-14.2-6.3-14.2-14.2V20c0-7.8,6.3-14.2,14.2-14.2h209.2
-            c7.8,0,14.2,6.3,14.2,14.2v127.2C-40.5,155-46.8,161.4-54.7,161.4z"/>
-        </defs>
-        <clipPath id="Clip_Path_2_">
-            <use xlink:href="#Clip_Path"  overflow="visible"/>
-        </clipPath>
-    </g>
+
     <g id="SVG">
         <g>
-            <path fill="#ED1C24" d="M229.3,5.9H20.1C12.3,5.9,5.9,12.2,5.9,20v127.2c0,7.8,6.3,14.2,14.2,14.2h209.2c7.8,0,14.2-6.3,14.2-14.2
+            <path id="red" fill="#ED1C24" d="M229.3,5.9H20.1C12.3,5.9,5.9,12.2,5.9,20v127.2c0,7.8,6.3,14.2,14.2,14.2h209.2c7.8,0,14.2-6.3,14.2-14.2
             V20C243.5,12.2,237.2,5.9,229.3,5.9z"/>
             <rect id="White_Foreground_1_" x="20.1" y="51.8" fill="#FFFFFF" width="209.2" height="95.4"/>
             <g id="Blacks_2_">
@@ -89,7 +81,5 @@
                 </g>
             </g>
         </g>
-    </g>
-    <g id="Layer_6">
     </g>
 </svg>

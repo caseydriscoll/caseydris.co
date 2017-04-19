@@ -8,8 +8,16 @@
   }
 
   #nametag {
-    max-width: 10rem;
-    transform: rotate(-5deg);
+    border: none;
+    svg {
+      max-width: 10rem;
+      transform: rotate(-5deg);
+
+      &:hover {
+        transition: transform .2s;
+        transform: rotate(-7deg);
+      }
+    }
   }
 
   section {
@@ -33,7 +41,8 @@
 
       em, a {
         font-weight: 900;
-        color: #e30613;
+        color: $brand-primary;
+        border: none;
       }
 
       img {
