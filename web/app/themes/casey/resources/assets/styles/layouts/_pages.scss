@@ -6,4 +6,24 @@
   .page-header {
     h1 { display: none; }
   }
+  
+  p {
+    text-align: center;
+    line-height: 1.25em;
+    font-weight: 600;
+
+    em, a {
+      font-weight: 900;
+      color: #e30613;
+    }
+
+    strong {
+      font-weight: 900;
+
+      &.heart {
+        color: #e30613;
+        font-style: normal;
+      }
+    }
+  }
 }
