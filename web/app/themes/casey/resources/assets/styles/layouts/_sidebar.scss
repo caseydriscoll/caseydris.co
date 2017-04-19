@@ -81,6 +81,8 @@
 
   &.secondary {
 
+    text-align: left;
+
     @include media-breakpoint-up(md) {
       width: 75%;
       margin: 0 0 0 25%;
@@ -91,5 +93,47 @@
       right: 0; top: 0;
       width: 25%;
     }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    li {
+      font-size: .8rem;
+    }
+  }
+}
+
+form.search-form {
+
+  padding: 1rem 0 2rem;
+
+  label {
+    margin: 0;
+  }
+
+  input {
+
+    &.search-field {
+
+      border-right: 0;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+
+      @include media-breakpoint-up(md) {
+        font-size: .8rem;
+      }
+
+    }
+
+    &.search-submit {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+
+      @include media-breakpoint-up(md) {
+        font-size: .8rem;
+      }
+    }
+
   }
 }
