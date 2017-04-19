@@ -1,0 +1,46 @@
+.primary.sidebar {
+  width: 100%;
+  margin: 0;
+
+  @include media-breakpoint-up(lg) {
+    margin: 8rem 4rem;
+  }
+
+  section {
+    padding: 1rem 0;
+
+    &:nth-of-type(2) {
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: center;
+      line-height: 1.25em;
+      font: {
+        size: 1.0rem;
+        weight: 600;
+      }
+
+      em, a {
+        font-weight: 900;
+        color: #e30613;
+      }
+
+      img {
+        margin: 2rem auto;
+      }
+
+      strong {
+        font-weight: 900;
+
+        &.heart {
+          color: #e30613;
+          font-style: normal;
+        }
+      }
+    }
+  }
+}

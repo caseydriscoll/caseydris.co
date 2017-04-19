@@ -1,3 +1,9 @@
+header {
+  .brand {
+    display: none;
+  }
+}
+
 .banner .nav li {
   @extend .nav-item;
 }

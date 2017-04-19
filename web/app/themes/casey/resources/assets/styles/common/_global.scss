@@ -1,8 +1,12 @@
 p {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 1.8;
   font-family: 'Merriweather', serif;
+
+  img {
+    max-width: 100%;
+  }
 
 }
 
