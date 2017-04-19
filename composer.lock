@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "781bb119528589e987215929fdf9297c",
+    "content-hash": "b7c627dc34bf9c41a61cbd7fb052adc5",
     "packages": [
         {
             "name": "composer/installers",
@@ -380,16 +380,16 @@
             "time": "2016-09-01T10:05:43+00:00"
         },
         {
-            "name": "wpackagist-plugin/googleanalytics",
-            "version": "2.1.3",
+            "name": "wpackagist-plugin/google-analytics-for-wordpress",
+            "version": "6.1.7",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/googleanalytics/",
-                "reference": "tags/2.1.3"
+                "url": "https://plugins.svn.wordpress.org/google-analytics-for-wordpress/",
+                "reference": "tags/6.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/googleanalytics.2.1.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/google-analytics-for-wordpress.6.1.7.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -397,7 +397,7 @@
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/googleanalytics/"
+            "homepage": "https://wordpress.org/plugins/google-analytics-for-wordpress/"
         }
     ],
     "packages-dev": [
