@@ -1,9 +1,15 @@
 .primary.sidebar {
   width: 100%;
-  margin: 0;
+  margin: 2rem auto;
+  text-align: center;
 
   @include media-breakpoint-up(lg) {
     margin: 8rem 4rem;
+  }
+
+  #nametag {
+    max-width: 10rem;
+    transform: rotate(-5deg);
   }
 
   section {
