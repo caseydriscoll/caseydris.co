@@ -5,23 +5,22 @@ cache:
 before_script:
   - git clone https://git.caseydris.co/casey/runner-steps.git steps
   - chmod -R 775 steps
+  - export CI_RELEASE=$(date +%Y%m%d%H%M%S)
 
 build_stage:
   stage: build
   script:
-    - export STAGE_RELEASE=$(date +%Y%m%d%H%M%S)
-    - steps/build  $STAGE_RELEASE casey
-    - steps/deploy $STAGE_PATH $STAGE_RELEASE
-    - steps/harden $STAGE_PATH $STAGE_RELEASE
+    - steps/build  $CI_RELEASE casey
+    - steps/deploy $STAGE_PATH $CI_RELEASE
+    - steps/harden $STAGE_PATH $CI_RELEASE
   only:
     - stage
 
 build_prod:
   stage: build
   script:
-    - export PROD_RELEASE=$(date +%Y%m%d%H%M%S)
-    - steps/build  $PROD_RELEASE casey
-    - steps/deploy $PROD_PATH $PROD_RELEASE
-    - steps/harden $PROD_PATH $PROD_RELEASE
+    - steps/build  $CI_RELEASE casey
+    - steps/deploy $PROD_PATH $CI_RELEASE
+    - steps/harden $PROD_PATH $CI_RELEASE
   only:
     - prod
