@@ -49,8 +49,23 @@
         }
 
         @include media-breakpoint-up(md) {
-          font-size: .6rem;
-          weight: 500;
+          font: {
+            size: .6rem;
+            weight: 500;
+          }
+        }
+
+        @include media-breakpoint-up(lg) {
+          font: {
+            size: .8rem;
+            weight: 600;
+          }
+        }
+
+        @include media-breakpoint-up(xl) {
+          font: {
+            //size: 1rem;
+          }
         }
 
         em, a {
