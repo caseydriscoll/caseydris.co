@@ -40,7 +40,8 @@
     "roots/wp-password-bcrypt": "1.0.0",
     "johnpbloch/wordpress": "4.7.3",
     "wpackagist-plugin/google-analytics-for-wordpress": "6.1.7",
-    "wpackagist-plugin/no-category-base-wpml": "1.3"
+    "wpackagist-plugin/no-category-base-wpml": "1.3",
+    "roots/soil": "3.7.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
