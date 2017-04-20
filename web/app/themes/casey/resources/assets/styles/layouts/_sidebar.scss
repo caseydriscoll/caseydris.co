@@ -13,7 +13,9 @@
     }
 
     #nametag {
-      border: none;
+
+      border: none !important;
+      text-decoration: none;
 
       svg {
         transform: rotate(-5deg);
