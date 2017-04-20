@@ -1,3 +1,8 @@
+#comments {
+  padding-top: 2rem; margin-top: 4rem;
+  border-top: 2px solid $brand-primary;
+}
+
 .comment-list {
   @extend .list-unstyled;
 }

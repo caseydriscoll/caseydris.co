@@ -10,17 +10,17 @@ main {
 
   h1 {
     @include media-breakpoint-up(md) {
-      margin: 0;
       font-size: 2rem;
     }
   }
 
   article.post {
-    padding: 2rem 0;
+    padding: 0 0 2rem;
 
     h2.entry-title {
-      .category {
-        color: $black
+      a.category {
+        color: $black;
+        border-bottom-color: $black;
       }
 
       @include media-breakpoint-up(md) {
