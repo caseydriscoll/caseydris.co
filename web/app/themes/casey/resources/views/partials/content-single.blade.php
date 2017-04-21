@@ -4,7 +4,7 @@
     @include('partials/entry-meta')
   </header>
   <div class="entry-content">
-    @php(fab_the_featured_image( 'large' ))
+    @php(fab_the_featured_image( 'post' ))
     @php(the_content())
   </div>
   <footer>
