@@ -39,7 +39,7 @@ h3 {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.8;
 
   img {
@@ -60,6 +60,32 @@ a {
     text-decoration: none;
     color: $link-hover-color !important;
     border-bottom: 1px solid $link-hover-color !important;
+  }
+}
+
+blockquote {
+
+  padding: 0 0 0 1rem; margin: 2rem 0 2rem 1rem;
+  border-left: 4px solid $brand-code-red;
+  color: $brand-code-red;
+
+  p {
+    position: relative;
+    font: {
+      size: 1.4rem;
+      style: italic;
+    }
+    line-height: 2rem;
+    text-align: left;
+  }
+
+  &:before {
+    //content: "\"";
+    display: block; position: absolute;
+    font: {
+      size: 5rem;
+
+    }
   }
 }
 
