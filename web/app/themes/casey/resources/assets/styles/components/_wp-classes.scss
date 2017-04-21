@@ -33,6 +33,14 @@
 // Captions
 .wp-caption {
   @extend .figure;
+
+  padding: .5rem;
+  -webkit-border-radius: .5rem;
+  -moz-border-radius: .5rem;
+  border-radius: .5rem;
+  background-color: $white;
+  text-align: right;
+  font-style: italic;
 }
 .wp-caption img {
   @extend .figure-img;
