@@ -111,3 +111,16 @@ function fab_the_featured_image( $size ) {
     echo "<p><a href='" . $post_thumbnail_url . "'>" . $post_thumbnail . "</a></p>";
 
 }
+
+function fab_the_featured_image_for_feeds() {
+
+    if ( ! has_post_thumbnail() ) {
+        return;
+    }
+
+    $post_thumbnail     = get_the_post_thumbnail( get_the_ID(), 'thumb', [ 'class' => 'alignleft feed'] );
+    $post_thumbnail_url = get_the_post_thumbnail_url();
+
+    echo "<p><a href='" . $post_thumbnail_url . "'>" . $post_thumbnail . "</a></p>";
+
+}

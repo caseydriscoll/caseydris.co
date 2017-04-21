@@ -7,6 +7,7 @@
     @include('partials/entry-meta')
   </header>
   <div class="entry-summary">
+    @php(fab_the_featured_image_for_feeds( 'thumb' ))
     @php(the_excerpt())
   </div>
 </article>

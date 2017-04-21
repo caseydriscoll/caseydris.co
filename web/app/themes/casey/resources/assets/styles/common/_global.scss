@@ -40,6 +40,10 @@ p {
 
   img {
     max-width: 100%;
+
+    &.feed {
+      margin-top: 0.5rem;
+    }
   }
 
 }
