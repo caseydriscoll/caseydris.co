@@ -43,13 +43,21 @@ p {
   line-height: 1.8;
 
   img {
-    max-width: 100%;
-
     &.feed {
       margin-top: 0.5rem;
     }
   }
 
+}
+
+img {
+  max-width: 100%;
+  box-shadow: 0 0 4px $gray-light;
+  border-radius: .5rem;
+
+  &:hover {
+    box-shadow: 0 0 4px $link-hover-color;
+  }
 }
 
 a {
